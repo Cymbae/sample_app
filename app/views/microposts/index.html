@@ -1,0 +1,20 @@
+<% provide(:title, 'All Microposts') %>
+<h1>All Microposts</h1>
+
+<%= form_tag microposts_path, :method => :get do %>
+  <p>
+  <div class="row">
+  <div class="span6 offset3">
+    <%= text_field_tag :search, params[:search] %> 
+    <button class='btn btn-medium btn-primary'><%= "Search" %></button>
+    </div>
+  </div>
+  </p>
+<% end %>
+
+<div>
+<ul class="microposts">
+  <%= render @microposts %>
+</ul>
+<%= will_paginate @microposts %>
+</div>
